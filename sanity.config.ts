@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Wine Portfolio Exporter',
+  title: 'Nowofalowi Wine Portfolio Exporter',
 
   projectId: 'no8d843p',
   dataset: 'production',
