@@ -1,0 +1,152 @@
+import {defineField, defineType} from 'sanity'
+
+export const wineType = defineType({
+    name: 'wine',
+    title: "Wine",
+    type: 'document',
+    preview: {
+        select: {
+          title: 'wineName',
+          producer: 'producer.producerName',
+          price: 'price',
+          soldOut: 'isSoldOut',
+          vintage: 'vintage',
+            wineType: 'wineType',
+            isSparkling: 'isSparkling',
+            isFortified: 'isFortified',
+            isNew: 'isNew',
+            isSoldOut: 'isSoldOut',
+            isAllocationOnly: 'isAllocationOnly',
+        },
+        prepare({title, producer, price, vintage, wineType, isSparkling, isFortified, isNew, isSoldOut, isAllocationOnly}) {
+            const labels = []
+    if (isNew) labels.push('New')
+    if (isSoldOut) labels.push('Sold Out')
+    if (isAllocationOnly) labels.push('Allocation Only')
+    if (isSparkling) labels.push('Sparkling')
+    if (isFortified) labels.push('Fortified')
+
+    const labelText = labels.length ? ` · ${labels.join(', ')}` : ''
+
+    return {
+      title: `${title}${vintage ? ' ' + vintage : ''}`,
+      subtitle: `${producer} — ${wineType} — ${price} PLN${labelText}`,
+    }
+          },
+        },
+    fields: [
+        defineField({
+            name: 'producer',
+            title: 'Producer',
+            type: 'reference',
+            to: [{type: 'producer'}],
+            validation: (rule) => rule.required(),
+          }),
+        defineField({
+            name: 'wineName',
+            title: 'Wine Name',
+            type: 'string',
+            validation: (rule) => rule.required(),
+          }),
+          defineField({
+            name: 'wineType',
+            title: 'Wine Type',
+            type: 'string',
+            options: {
+              list: [
+                {title: 'Red', value: 'red'},
+                {title: 'White', value: 'white'},
+                {title: 'Rosé', value: 'rose'},
+                {title: 'Macerated', value: 'macerated'},
+              ],
+              layout: 'radio', 
+            },
+            validation: (rule) => rule.required(),
+          }),
+          defineField({
+            name: 'isSparkling',
+            title: 'Sparkling',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isFortified',
+            title: 'Fortified',
+            type: 'boolean',
+          }),
+          defineField({
+            name: 'isSmallBottle',
+            title: '0.375 l bottle',
+            type: 'boolean',
+          }),
+          defineField({
+            name: 'isMagnumBottle',
+            title: 'Magnum Bottle',
+            type: 'boolean',
+          }),
+          defineField({
+            name: 'vintage',
+            title: 'Vintage',
+            type: 'string',
+          }),
+          defineField({
+            name: 'price',
+            title: 'Price',
+            type: 'number',
+            validation: (rule) => rule.required(),
+          }),
+          defineField({
+            name: 'grapeVariety',
+            title: 'Grape Variety',
+            type: 'array',
+            of: [{type: 'reference', to: [{type: 'grapeVariety'}]}],
+          }),
+          defineField({
+            name: 'dosage',
+            title: 'Dosage',
+            type: 'string',
+          }),
+          defineField({
+            name: 'sugar',
+            title: 'Sugar',
+            type: 'string',
+          }),
+          defineField({
+            name: 'degorgement',
+            title: 'Degorgement',
+            type: 'string',
+          }),
+          defineField({
+            name: 'base',
+            title: 'Base',
+            type: 'number',
+          }),
+          defineField({
+            name: 'classification',
+            title: 'Classification',
+            type: 'string',
+          }),
+          defineField({
+            name: 'bottled',
+            title: 'Bottled',
+            type: 'number',
+          }),
+          defineField({
+            name: 'isNew',
+            title: 'New',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isSoldOut',
+            title: 'Sold Out',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isAllocationOnly',
+            title: 'Allocation Only',
+            type: 'boolean',
+          }),
+    ]
+})
