@@ -23,11 +23,11 @@ export const producerType = defineType({
       type: 'string',
       options: {
         list: [
-          {title: 'France', value: 'france'},
-          {title: 'Italy', value: 'italy'},
-          {title: 'USA', value: 'usa'},
-          {title: 'Austria', value: 'austria'},
-          {title: 'Hungary', value: 'hungary'},
+          {title: 'France', value: 'France'},
+          {title: 'Italy', value: 'Italy'},
+          {title: 'USA', value: 'Usa'},
+          {title: 'Austria', value: 'Austria'},
+          {title: 'Hungary', value: 'Hungary'},
         ],
         layout: 'radio',   
       },
