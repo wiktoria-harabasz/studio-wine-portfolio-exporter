@@ -49,12 +49,14 @@ export const wineType = defineType({
         defineField({
             name: 'wineName',
             title: 'Wine Name',
+            description: 'Coteaux Champenois Rouge',
             type: 'string',
             validation: (rule) => rule.required(),
           }),
           defineField({
             name: 'wineSubName',
             title: 'Wine Sub-name',
+            description: 'eg. Champs Navette',
             type: 'string',
           }),
           defineField({
@@ -101,11 +103,13 @@ export const wineType = defineType({
           defineField({
             name: 'pricePrivate',
             title: 'Price (b2c)',
+            description: 'Poprawny format: tylko cena bez waluty, np. 125 (waluta wygenerowana automatycznie w tabelce)',
             type: 'number',
           }),
           defineField({
             name: 'priceHoreca',
             title: 'Price (HoReCa)',
+            description: 'Poprawny format: tylko cena bez waluty, np. 125 (waluta wygenerowana automatycznie w tabelce)',
             type: 'number',
           }),
           defineField({
@@ -117,26 +121,31 @@ export const wineType = defineType({
           defineField({
             name: 'dosage',
             title: 'Dosage',
+            description: 'Wpisz słownie, np. Extra Brut ',
             type: 'string',
           }),
           defineField({
             name: 'sugar',
             title: 'Sugar',
+            description: 'Poprawny format: tylko numer, np. 4 (g/l są wygenerowane automatycznie w tabelce)',
             type: 'number',
           }),
           defineField({
             name: 'degorgement',
             title: 'Degorgement',
+            description: 'Poprawny format: np. 04/2024',
             type: 'string',
           }),
           defineField({
             name: 'base',
             title: 'Base',
+            description: 'Dozwolony format: sam rok np. 2022 i przełom np. 2021/2022',
             type: 'string',
           }),
           defineField({
             name: 'classification',
             title: 'Classification',
+            description: 'Np. Ortswein',
             type: 'string',
           }),
           defineField({
@@ -171,6 +180,11 @@ export const wineType = defineType({
           defineField({
             name: 'isAllocationOnly',
             title: 'Allocation Only',
+            type: 'boolean',
+          }),
+          defineField({
+            name: 'isSansSulfite',
+            title: 'Sans Sulfite',
             type: 'boolean',
           }),
     ]
