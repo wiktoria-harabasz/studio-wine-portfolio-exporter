@@ -49,14 +49,14 @@ export const wineType = defineType({
         defineField({
             name: 'wineName',
             title: 'Wine Name',
-            description: 'Coteaux Champenois Rouge',
+            description: 'Np. Coteaux Champenois Rouge',
             type: 'string',
             validation: (rule) => rule.required(),
           }),
           defineField({
             name: 'wineSubName',
             title: 'Wine Sub-name',
-            description: 'eg. Champs Navette',
+            description: 'Np. Champs Navette',
             type: 'string',
           }),
           defineField({
