@@ -158,7 +158,7 @@ export const wineType = defineType({
           }),
           defineField({
             name: 'isBackInStock',
-            title: 'Back in stock!',
+            title: 'Back in stock',
             type: 'boolean',
             initialValue: false,
           }),
