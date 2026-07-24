@@ -98,15 +98,13 @@ export const wineType = defineType({
           }),
           defineField({
             name: 'pricePrivate',
-            title: 'Price',
+            title: 'Price (b2c)',
             type: 'number',
-            validation: (rule) => rule.required(),
           }),
           defineField({
             name: 'priceHoreca',
-            title: 'Price',
+            title: 'Price (HoReCa)',
             type: 'number',
-            validation: (rule) => rule.required(),
           }),
           defineField({
             name: 'grapeVariety',
