@@ -14,14 +14,16 @@ export const wineType = defineType({
             wineType: 'wineType',
             isSparkling: 'isSparkling',
             isFortified: 'isFortified',
+            isBackInStock: 'isBackInStock',
             isNew: 'isNew',
             isSoldOut: 'isSoldOut',
             isAllocationOnly: 'isAllocationOnly',
         },
-        prepare({title, producer, price, vintage, wineType, isSparkling, isFortified, isNew, isSoldOut, isAllocationOnly}) {
+        prepare({title, producer, price, vintage, wineType, isSparkling, isFortified, isNew, isBackInStock, isSoldOut, isAllocationOnly}) {
             const labels = []
     if (isNew) labels.push('New')
     if (isSoldOut) labels.push('Sold Out')
+    if (isBackInStock) labels.push('Back in stock!')
     if (isAllocationOnly) labels.push('Allocation Only')
     if (isSparkling) labels.push('Sparkling')
     if (isFortified) labels.push('Fortified')
@@ -49,6 +51,11 @@ export const wineType = defineType({
             validation: (rule) => rule.required(),
           }),
           defineField({
+            name: 'wineSubName',
+            title: 'Wine Sub-name',
+            type: 'string',
+          }),
+          defineField({
             name: 'wineType',
             title: 'Wine Type',
             type: 'string',
@@ -61,7 +68,7 @@ export const wineType = defineType({
               ],
               layout: 'radio', 
             },
-            validation: (rule) => rule.required(),
+            
           }),
           defineField({
             name: 'isSparkling',
@@ -90,7 +97,13 @@ export const wineType = defineType({
             type: 'string',
           }),
           defineField({
-            name: 'price',
+            name: 'pricePrivate',
+            title: 'Price',
+            type: 'number',
+            validation: (rule) => rule.required(),
+          }),
+          defineField({
+            name: 'priceHoreca',
             title: 'Price',
             type: 'number',
             validation: (rule) => rule.required(),
@@ -109,7 +122,7 @@ export const wineType = defineType({
           defineField({
             name: 'sugar',
             title: 'Sugar',
-            type: 'string',
+            type: 'number',
           }),
           defineField({
             name: 'degorgement',
@@ -119,7 +132,7 @@ export const wineType = defineType({
           defineField({
             name: 'base',
             title: 'Base',
-            type: 'number',
+            type: 'string',
           }),
           defineField({
             name: 'classification',
@@ -134,6 +147,12 @@ export const wineType = defineType({
           defineField({
             name: 'isNew',
             title: 'New',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isBackInStock',
+            title: 'Back in stock!',
             type: 'boolean',
             initialValue: false,
           }),
