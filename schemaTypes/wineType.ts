@@ -187,5 +187,20 @@ export const wineType = defineType({
             title: 'Sans Sulfite',
             type: 'boolean',
           }),
+          defineField({
+            name: 'bottleImage',
+            title: 'Bottle Image',
+            type: 'image',
+          }),
+          defineField({
+            name: 'vintageReport',
+            title: 'Vintage Report',
+            type: 'text',
+          }),
+          defineField({
+            name: 'terroir',
+            title: 'Terroir',
+            type: 'text',
+          }),
     ]
 })
