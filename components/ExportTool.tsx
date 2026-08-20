@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const EXPORT_SERVER_URL = 'wine-portfolio-pdf-renderer-production.up.railway.app'
+const EXPORT_SERVER_URL = 'https://wine-portfolio-pdf-renderer-production.up.railway.app'
 
 async function downloadExport(type: string, setLoadingType: (v: string | null) => void) {
     setLoadingType(type)
