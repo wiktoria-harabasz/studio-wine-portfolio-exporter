@@ -2,31 +2,45 @@ import {useState} from 'react'
 
 const EXPORT_SERVER_URL = 'http://localhost:3001'
 
-async function downloadExport(priceType: string, setLoadingType: (v: string | null) => void) {
-  setLoadingType(priceType)
-  try {
-    const res = await fetch(`${EXPORT_SERVER_URL}/export/full/${priceType}`)
-    if (!res.ok) throw new Error('Export failed')
-    const blob = await res.blob()
-    const url = window.URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `wine-portfolio-${priceType}.pdf`
-    a.click()
-    window.URL.revokeObjectURL(url)
-  } catch (err) {
-    alert('Export failed. Please try again.')
-    console.error(err)
-  } finally {
-    setLoadingType(null)
+async function downloadExport(type: string, setLoadingType: (v: string | null) => void) {
+    setLoadingType(type)
+    try {
+      const url = type === 'winedb' ? '/export/winedb' : `/export/full/${type}`
+      const filename = type === 'winedb' ? 'wine-database.pdf' : `wine-portfolio-${type}.pdf`
+  
+      const res = await fetch(`${EXPORT_SERVER_URL}${url}`)
+      if (!res.ok) throw new Error('Export failed')
+      const blob = await res.blob()
+      const blobUrl = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = blobUrl
+      a.download = filename
+      a.click()
+      window.URL.revokeObjectURL(blobUrl)
+    } catch (err) {
+      alert('Export failed. Please try again.')
+      console.error(err)
+    } finally {
+      setLoadingType(null)
+    }
   }
-}
 
 const buttonStyle = {
     padding: '6px 12px',
     backgroundColor: '#140a0a',
     color: '#fff',
     border: 'none',
+    borderRadius: '4px',
+    fontWeight: 700,
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+    fontSize: '14px'
+  }
+
+  const exportButtonStyle = {
+    padding: '6px 12px',
+    border: '1px solid #140a0a',
+    color: '#140a0a',
     borderRadius: '4px',
     fontWeight: 700,
     cursor: 'pointer',
@@ -63,7 +77,15 @@ export function ExportTool() {
         >
           {loadingType === 'horeca' ? 'Generating…' : 'Export HoReCa Portfolio'}
         </button>
+        <button
+            style={loadingType !== null ? buttonDisabledStyle : exportButtonStyle}
+            disabled={loadingType !== null}
+            onClick={() => downloadExport('winedb', setLoadingType)}
+            >
+            {loadingType === 'winedb' ? 'Generating…' : 'Export Wine Database'}
+        </button>
       </div>
     </div>
-  )
+  )     
 }
+
