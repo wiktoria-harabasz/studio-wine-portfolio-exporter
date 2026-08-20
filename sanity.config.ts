@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
+import {ExportTool} from './components/ExportTool'
 // import {createBulkActionsTable} from 'sanity-plugin-bulk-actions-table'
 
 export default defineConfig({
@@ -34,4 +35,11 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+  tools: [
+    {
+      name: 'export',
+      title: 'Export PDF',
+      component: ExportTool,
+    },
+  ],
 })
