@@ -227,7 +227,14 @@ export const wineType = defineType({
           defineField({
             name: 'slug',
             type: 'slug',
-            options: {source: 'wineName'},
+            options: {
+              source: (doc) => {
+                const parts = [doc.wineName, doc.vintage]
+                if (doc.isMagnumBottle) parts.push('magnum')
+                return parts.filter(Boolean).join(' ')
+              },
+              maxLength: 200,
+            },
             validation: (rule) => rule.required(),
           }),
     ]
