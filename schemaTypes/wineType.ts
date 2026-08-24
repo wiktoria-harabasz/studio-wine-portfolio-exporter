@@ -65,6 +65,18 @@ export const wineType = defineType({
             type: 'string',
           }),
           defineField({
+            name: 'hideFromPrivate',
+            title: 'Hide from b2c portfolio',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'hideFromHoreca',
+            title: 'Hide from horeca portfolio',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
             name: 'wineType',
             title: 'Wine Type',
             type: 'string',
