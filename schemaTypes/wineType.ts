@@ -39,7 +39,7 @@ export const wineType = defineType({
 
     return {
       title: `${title}${vintage ? ' ' + vintage : ''}`,
-      subtitle: `${producer} — ${wineType} — ${price} PLN${labelText}`,
+      subtitle: `${producer} — ${wineType} — ${priceHoreca} PLN${labelText} — ${pricePrivate} PLN${labelText}`,
     }
           },
         },
