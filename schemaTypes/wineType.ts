@@ -8,7 +8,8 @@ export const wineType = defineType({
         select: {
           title: 'wineName',
           producer: 'producer.producerName',
-          price: 'price',
+          priceHoreca: 'priceHoreca',
+          pricePrivate: 'pricePrivate',
           soldOut: 'isSoldOut',
           vintage: 'vintage',
             wineType: 'wineType',
@@ -18,13 +19,17 @@ export const wineType = defineType({
             isNew: 'isNew',
             isNewVintage: 'isNewVintage',
             isSoldOut: 'isSoldOut',
+            isSoldOutHoreca: 'isSoldOutHoreca',
+            isSoldOutPrivate: 'isSoldOutPrivate',
             isAllocationOnly: 'isAllocationOnly',
         },
-        prepare({title, producer, price, vintage, wineType, isSparkling, isFortified, isNew, isNewVintage, isBackInStock, isSoldOut, isAllocationOnly}) {
+        prepare({title, producer, pricePrivate, priceHoreca, vintage, wineType, isSparkling, isFortified, isNew, isNewVintage, isBackInStock, isSoldOut, isSoldOutHoreca, isSoldOutPrivate, isAllocationOnly}) {
             const labels = []
     if (isNew) labels.push('New')
     if (isNewVintage) labels.push('New Vintage')
     if (isSoldOut) labels.push('Sold Out')
+    if (isSoldOutHoreca) labels.push('Sold Out (horeca only)')
+    if (isSoldOutPrivate) labels.push('Sold Out (b2c only)')
     if (isBackInStock) labels.push('Back in stock')
     if (isAllocationOnly) labels.push('Allocation Only')
     if (isSparkling) labels.push('Sparkling')
@@ -184,7 +189,7 @@ export const wineType = defineType({
             initialValue: false,
           }),
           defineField({
-            name: 'isSoldOutB2c',
+            name: 'isSoldOutPrivate',
             title: 'Sold Out (b2c only)',
             type: 'boolean',
             initialValue: false,
