@@ -18,6 +18,12 @@ export const producerType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'isNew',
+      title: 'New in Portfolio',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'country',
       title: 'Country',
       type: 'string',
@@ -27,6 +33,7 @@ export const producerType = defineType({
           {title: 'Italy', value: 'italy'},
           {title: 'USA', value: 'usa'},
           {title: 'Austria', value: 'austria'},
+          {title: 'Germany', value: 'germany'},
           {title: 'Hungary', value: 'hungary'},
         ],
         layout: 'radio',   
