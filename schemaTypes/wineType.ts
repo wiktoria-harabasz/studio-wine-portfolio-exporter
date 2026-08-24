@@ -178,6 +178,18 @@ export const wineType = defineType({
             initialValue: false,
           }),
           defineField({
+            name: 'isSoldOutHoreca',
+            title: 'Sold Out (Horeca only)',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isSoldOutB2c',
+            title: 'Sold Out (b2c only)',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
             name: 'isAllocationOnly',
             title: 'Allocation Only',
             type: 'boolean',
@@ -201,6 +213,22 @@ export const wineType = defineType({
             name: 'terroir',
             title: 'Terroir',
             type: 'text',
+          }),
+          defineField({
+            name: 'wineMaking',
+            title: 'Wine Making',
+            type: 'text',
+          }),
+          defineField({
+            name: 'tastingNotes',
+            title: 'Tasting Notes',
+            type: 'text',
+          }),
+          defineField({
+            name: 'slug',
+            type: 'slug',
+            options: {source: 'wineName'},
+            validation: (rule) => rule.required(),
           }),
     ]
 })
