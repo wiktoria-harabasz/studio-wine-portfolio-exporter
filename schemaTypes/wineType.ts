@@ -98,6 +98,12 @@ export const wineType = defineType({
             initialValue: false,
           }),
           defineField({
+            name: 'isChampagne',
+            title: 'Champagne',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
             name: 'isFortified',
             title: 'Fortified',
             type: 'boolean',
