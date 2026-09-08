@@ -18,6 +18,12 @@ export const producerType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'producerSubname',
+      title: 'Producer Subname',
+      type: 'string',
+      description: 'Wpisać w wypadku długej wieloczłonej nazwy np. KTCN 0% (Katharina Tinnacher & Christoph Neumeister)',
+    }),
+    defineField({
       name: 'isNewInPortfolio',
       title: 'New in Portfolio',
       type: 'boolean',
