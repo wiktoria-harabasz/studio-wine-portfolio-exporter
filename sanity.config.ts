@@ -29,6 +29,13 @@ export default defineConfig({
           S.documentTypeListItem('region').title('Regions'),
           S.documentTypeListItem('subregion').title('Subregions'),
           S.documentTypeListItem('grapeVariety').title('Grape Varieties'),
+          S.listItem()
+            .title('Portfolio Settings')
+            .child(
+              S.document()
+                .schemaType('portfolioSettings')
+                .documentId('portfolioSettings')
+            ),
         ]),
   }), visionTool()],
 
