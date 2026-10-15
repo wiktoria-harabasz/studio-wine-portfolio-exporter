@@ -41,6 +41,7 @@ export const producerType = defineType({
           {title: 'Austria', value: 'Austria'},
           {title: 'Germany', value: 'Germany'},
           {title: 'Hungary', value: 'Hungary'},
+          {title: 'South Africa', value: 'South Africa'},
         ],
         layout: 'radio',   
       },
