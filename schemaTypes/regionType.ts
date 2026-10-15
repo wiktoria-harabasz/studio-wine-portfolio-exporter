@@ -24,6 +24,7 @@ export const regionType = defineType({
             {title: 'Germany', value: 'Germany'},
             {title: 'Hungary', value: 'Hungary'},
             {title: 'South Africa', value: 'South Africa'},
+            {title: 'Portugal', value: 'Portugal'},
           ],
         },
         validation: (rule) => rule.required(),
