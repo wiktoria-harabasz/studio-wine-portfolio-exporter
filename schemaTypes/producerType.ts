@@ -43,7 +43,7 @@ export const producerType = defineType({
         list: [
           {title: 'France', value: 'France'},
           {title: 'Italy', value: 'Italy'},
-          {title: 'USA', value: 'Usa'},
+          {title: 'USA', value: 'USA'},
           {title: 'Austria', value: 'Austria'},
           {title: 'Germany', value: 'Germany'},
           {title: 'Hungary', value: 'Hungary'},

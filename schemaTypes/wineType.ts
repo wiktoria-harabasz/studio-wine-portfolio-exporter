@@ -21,15 +21,17 @@ export const wineType = defineType({
             isSoldOut: 'isSoldOut',
             isSoldOutHoreca: 'isSoldOutHoreca',
             isSoldOutPrivate: 'isSoldOutPrivate',
+            isAvailableSoon: 'isAvailableSoon',
             isAllocationOnly: 'isAllocationOnly',
         },
-        prepare({title, producer, pricePrivate, priceHoreca, vintage, wineType, isSparkling, isFortified, isNew, isNewVintage, isBackInStock, isSoldOut, isSoldOutHoreca, isSoldOutPrivate, isAllocationOnly}) {
+        prepare({title, producer, pricePrivate, priceHoreca, vintage, wineType, isSparkling, isFortified, isNew, isNewVintage, isBackInStock, isSoldOut, isSoldOutHoreca, isSoldOutPrivate, isAvailableSoon,isAllocationOnly}) {
             const labels = []
     if (isNew) labels.push('New')
     if (isNewVintage) labels.push('New Vintage')
     if (isSoldOut) labels.push('Sold Out')
     if (isSoldOutHoreca) labels.push('Sold Out (horeca only)')
     if (isSoldOutPrivate) labels.push('Sold Out (b2c only)')
+    if (isAvailableSoon) labels.push('Available Soon')
     if (isBackInStock) labels.push('Back in stock')
     if (isAllocationOnly) labels.push('Allocation Only')
     if (isSparkling) labels.push('Sparkling')
@@ -73,6 +75,12 @@ export const wineType = defineType({
           defineField({
             name: 'hideFromHoreca',
             title: 'Hide from horeca portfolio',
+            type: 'boolean',
+            initialValue: false,
+          }),
+          defineField({
+            name: 'isAvailableSoon',
+            title: 'Gray-out and make available soon with a custom label',
             type: 'boolean',
             initialValue: false,
           }),
