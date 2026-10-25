@@ -226,6 +226,13 @@ export const wineType = defineType({
             type: 'boolean',
           }),
           defineField({
+            name: 'availableSoonLabel',
+            title: 'Available Soon Label',
+            type: 'string',
+            description: 'Text shown on the badge, e.g. "Available from March". Leave empty to show "Available soon".',
+            hidden: ({document}) => !document?.isAvailableSoon,
+          }),
+          defineField({
             name: 'isSansSulfite',
             title: 'Sans Sulfite',
             type: 'boolean',
