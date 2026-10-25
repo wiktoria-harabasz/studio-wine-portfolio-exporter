@@ -80,9 +80,16 @@ export const wineType = defineType({
           }),
           defineField({
             name: 'isAvailableSoon',
-            title: 'Gray-out and make available soon with a custom label',
+            title: 'Make available soon with a custom label',
             type: 'boolean',
             initialValue: false,
+          }),
+          defineField({
+            name: 'availableSoonLabel',
+            title: 'Available Soon Label',
+            type: 'string',
+            description: 'Text shown on the badge, e.g. "Available from March". Leave empty to show "Available soon".',
+            hidden: ({document}) => !document?.isAvailableSoon,
           }),
           defineField({
             name: 'wineType',
@@ -225,13 +232,7 @@ export const wineType = defineType({
             title: 'Allocation Only',
             type: 'boolean',
           }),
-          defineField({
-            name: 'availableSoonLabel',
-            title: 'Available Soon Label',
-            type: 'string',
-            description: 'Text shown on the badge, e.g. "Available from March". Leave empty to show "Available soon".',
-            hidden: ({document}) => !document?.isAvailableSoon,
-          }),
+          
           defineField({
             name: 'isSansSulfite',
             title: 'Sans Sulfite',
