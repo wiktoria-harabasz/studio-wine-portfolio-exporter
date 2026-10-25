@@ -30,6 +30,12 @@ export const producerType = defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'hideFromPortfolio',
+      title: 'Hide from portfolio',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'country',
       title: 'Country',
       type: 'string',
